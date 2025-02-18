@@ -6,7 +6,7 @@ export interface TripCardProps {
   number_of_days: number
 }
 
-const TripCard: React.FC<TripCardProps> = ({ id, name, cost, image, number_of_days }) => {
+const TripCard: React.FC<TripCardProps> = ({name, cost, image, number_of_days }) => {
 
   return (
     <div className="relative w-[270px] h-[450px] max-w-[270px] w-full mx-auto">
