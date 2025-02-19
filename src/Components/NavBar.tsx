@@ -57,14 +57,14 @@ const Navbar: React.FC = () => {
 
             {/* Aside Menu for Mobile */}
             {menuOpen && (
-                <div className="fixed top-0 left-0 w-1/4 h-full bg-gray-800 p-6 md:hidden">
+                <div className="fixed top-0 left-0 w-1/4 h-full bg-[#9d7dbae8] p-6 md:hidden">
                     <button
-                        className="absolute top-4 right-4 text-white text-xl"
+                        className="absolute top-3 right-4 text-white text-md mb-2"
                         onClick={toggleMenu}
                     >
                         <FontAwesomeIcon icon={faTimes} />
                     </button>
-                    <ul className="flex flex-col gap-6 text-white">
+                    <ul className="flex flex-col gap-5 text-white mt-5">
                         {[
                             { name: "الرحلات", to: "trips" },
                             { name: "الخدمات", to: "services" },
@@ -72,7 +72,7 @@ const Navbar: React.FC = () => {
                             { name: "آراء العملاء", to: "testimonials" },
                             { name: "اتصل بنا", to: "contact" },
                         ].map((item, index) => (
-                            <li className="hover:text-yellow-400 cursor-pointer" key={index}>
+                            <li className=" flex justify-center text-center rhover:text-yellow-400 active:text-yellow-400 cursor-pointer" key={index}>
                                 <Link
                                     to={item.to}
                                     smooth={true}
