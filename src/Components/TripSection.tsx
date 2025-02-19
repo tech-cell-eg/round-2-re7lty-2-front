@@ -58,7 +58,7 @@ function SamplePrevArrow(props:ArrowProps) {
     );
 }
 
-function TripSection() {
+const TripSection: React.FC = () => {
     const settings = {
         dots: true,
         infinite: false,
