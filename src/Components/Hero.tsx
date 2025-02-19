@@ -11,11 +11,11 @@ const Hero: React.FC = () => {
       style={{ backgroundImage: `url(${hero})` }}
     >
       {/* Content */}
-      <div className=" text-white p-6">
-        <h1 className="text-4xl sm:text-6xl font-bold">
+      <div className=" text-white p-6 ">
+        <h1 className="ms:mt-20 md:mt-4 text-4xl sm:text-6xl font-bold mb-6">
           سافر معنا إلى العالم
         </h1>
-        <p className="mt-4 text-lg sm:text-xl">
+        <p className=" text-lg sm:text-xl leading-[35px]	">
           نوفر لك أفضل الرحلات التي تحتاجها لجميع البلدان <br />
           وخدمات مخصصة لك ولعائلتك
         </p>
@@ -31,7 +31,7 @@ const Hero: React.FC = () => {
         {/* Scroll down */}
         <div className="relative">
         <span className="text-xl font-semibold mt-[50px] cursor-pointer">تابع للأسفل</span>
-        <img className="absolute md:left-[50px] bottom-[-20px] sm:left-[-10px] bottom-[-45px]" src={arrow} alt="" />
+        <img className="absolute md:left-[50px] bottom-[-20px] sm:left-[-10px] bottom-[-40px]" src={arrow} alt="" />
         </div>
         
       </div>
