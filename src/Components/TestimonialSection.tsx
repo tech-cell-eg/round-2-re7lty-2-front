@@ -66,7 +66,7 @@ const Testimonials: React.FC = () => {
   ))}
 </Slider>
 
-        <img src={cirlyArrow} alt="cirlyArrow" className="absolute left-[114px] md:left-[140px] lg:left-[245px] 2xl:left-[400px]  top-[-34px] w-[85px] h-[41px]" />
+        <img src={cirlyArrow} alt="cirlyArrow" className="absolute hidden md:left-[140px] lg:left-[245px] 2xl:left-[400px]  top-[-34px] w-[85px] h-[41px]" />
 
       </div>
     </div>
