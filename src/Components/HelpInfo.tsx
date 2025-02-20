@@ -7,9 +7,9 @@ const HelpInfo: React.FC = () => {
   return (
     <div className="max-w-md  p-6 space-y-10 text-gray-900 text-center" dir="rtl">
       {/* Section 1 */}
-      <div className="flex items-center gap-2">
+      <div className="flex flex-col md:flex-row items-center gap-2 justify-center">
         <img src={contactus1 }alt="مساعدة" className="w-16 h-16" />
-        <div className="text-start">
+        <div className="tet-center xmd:text-start">
         <h3 className="text-lg font-bold">نقدم لك المساعدة</h3>
         <p className="text-gray-600">
           إذا كان لديك أي مشكلة في البلد الذي تسافر إليه سنقوم بمساعدتك في هذا الموضوع.
@@ -18,9 +18,9 @@ const HelpInfo: React.FC = () => {
       </div>
 
       {/* Section 2 */}
-      <div className="flex items-center gap-2">
+      <div className="flex flex-col md:flex-row items-center gap-2 justify-center">
         <img src={contactus2} alt="تواصل" className="w-16 h-16" />
-        <div className="text-start">
+        <div className="tet-center xmd:text-start">
         <h3 className="text-lg font-bold">للتواصل</h3>
         <p className="text-gray-600">
           يمكنك التواصل معنا عبر الفورم أو عبر البريد الإلكتروني:
@@ -33,9 +33,9 @@ const HelpInfo: React.FC = () => {
       </div>
 
       {/* Section 3 */}
-      <div className="flex items-center gap-2">
+      <div className="flex flex-col md:flex-row items-center gap-2 justify-center">
         <img src={contactus3} alt="أوقات الدوام" className="w-16 h-16" />
-        <div className="text-start">
+        <div className="tet-center xmd:text-start">
         <h3 className="text-lg font-bold">أوقات الدوام</h3>
         <p className="text-gray-600">
           يمكنك التواصل معنا يوميًا أثناء أوقات الدوام من الساعة 9 صباحًا حتى 6 مساءً.

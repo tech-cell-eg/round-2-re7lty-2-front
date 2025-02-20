@@ -1,6 +1,6 @@
 import { services } from "./data";
 import Services, { ServicesProps } from "./Services";
-
+import cyrlyArrow2 from "../assets/cyrlyArrow2.png"
 const ServicesSection: React.FC = () => {
     return (
 
@@ -11,10 +11,11 @@ const ServicesSection: React.FC = () => {
                 <h1 className="font-bold  text-2xl md:text-5xl">مجموعة من خدماتنا</h1>
             </div>
             {/* Cards Container */}
-            <div dir="rtl" className="flex max-md:flex-col max-md:gap-8 md:flex-row  justify-around items-center p-4 mx-12 rounded-3xl bg-[#F1EFFD]">
+            <div dir="rtl" className="relative flex max-md:flex-col max-md:gap-8 md:flex-row justify-around items-center px-4 py-10 mx-12 rounded-3xl bg-[#F1EFFD]">
                 {services.map((service: ServicesProps, index) => (
                     <Services key={index} img={service.img} service={service.service} desc1={service.desc1} desc2={service.desc2} />
                 ))}
+                <img src={cyrlyArrow2} alt="" className="w-[51px] h-[107px] absolute top-0 left-1/2 transform translate-x-[-120px]" />
             </div>
         </section>
 
