@@ -79,17 +79,17 @@ const TripSection: React.FC = () => {
     };
 
     return (
-        <div dir="rtl" className="mt-6">
-        <h6 className="mt-5 ms-15 mb-2 text-sm text-gray-400">قم بزيارة العالم</h6>
-        <h1 className="ms-15 text-xl font-semibold">الرحلات التي نقدمها</h1>
-        <div dir="rtl" className="relative w-full max-w-screen-xl mx-auto my-5">
+        <section dir="rtl" className="mt-6" id="trips">
+        <h6 className="mt-5 ms-15 mb-2 text-2xl text-gray-400">قم بزيارة العالم</h6>
+        <h1 className="ms-15 text-5xl font-semibold">الرحلات التي نقدمها</h1>
+        <div dir="rtl" className="relative max-w-screen-xl mx-auto my-5">
             <Slider {...settings}>
                 {trips.map((trip: TripCardProps) => (
                     <TripCard key={trip.id} {...trip} />
                 ))}
             </Slider>
         </div>
-        </div>
+        </section>
     );
 }
 

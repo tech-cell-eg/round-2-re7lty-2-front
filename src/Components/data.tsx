@@ -6,6 +6,10 @@ import services1 from "../assets/services1.png"
 import services2 from "../assets/services2.png"
 import services3 from "../assets/services3.png"
 
+import person1 from "../assets/person1.png"
+import person2 from "../assets/person2.png"
+import person3 from "../assets/person3.png"
+
 
 
 export const trips = [
@@ -87,3 +91,80 @@ export const services = [
         desc2: "من الخطط والرحلات المختلفة."
     }
 ]
+// Static pricing plans
+export const plans = [
+    {
+      id:1,
+        price: 260,
+        title: "خطة الاقتصادية",
+        description: "تقدم لك إقامة فاخرة بأسعار تناسب الميزانية وأفضل الخدمات",
+        features: [
+          " بطاقات سفر في الدرجة الاقتصادية",
+          " حجز فندق ثلاث نجوم",
+          " وجبات فاخرة يومية",
+        ],
+      },
+    {
+      id:2,
+      price: 520,
+      title: "خطة عائلية",
+      description: "هذه الخطة مناسبة جدًا إن كنت ترغب في قضاء إجازة مع العائلة",
+      features: [
+        " بطاقات سفر في الدرجة الأولى",
+        " حجز فندق أربع نجوم",
+        " رحلات سياحية بشكل يومي",
+      ],
+    },
+    {
+      id:3,
+        price: 850,
+        title: "خطة رجال الأعمال",
+        description: "نقدم لك إمكانية زيارة بلدان العالم بأقل التكاليف الممكنة وبأفضل الخدمات",
+        features: [
+          " بطاقات سفر لدرجة رجال الأعمال",
+          " حجز فندق خمس نجوم",
+          " متابعة خاصة لرحلاتك",
+        ],
+      },
+
+  ];
+
+// Sample Testimonials Data
+export const testimonials = [
+    {
+      name: "أسامة الأبيض",
+      image:person1,
+      rating: 5,
+      feedback: "يمكنني القول أنني قمت باختيار رحلة عائلة على الباخرة، وكان التفاعل رائعًا وخطة السفر ممتازة جدًا ومريحة."
+    },
+    {
+      name: "طاهر عبد اللطيف",
+      image: person2,
+      rating: 5,
+      feedback: "تقدم شركتكم خدمات مناسبة جدًا لرجال الأعمال، هذا ما ساعدني في رحلتي وجعلني اختصر جدًا من مشاكل الحجوزات."
+    },
+    {
+      name: "محمد الأحمد",
+      image: person3,
+      rating: 5,
+      feedback: "كانت تجربة مميزة مع خدمات رائعة قمت بأفضل إجازة لي من مدة طويلة، أنصح بالتعامل مع شركتكم دائمًا."
+    },
+    {
+      name: "أسامة الأبيض",
+      image: person2,
+      rating: 5,
+      feedback: "يمكنني القول أنني قمت باختيار رحلة عائلة على الباخرة، وكان التفاعل رائعًا وخطة السفر ممتازة جدًا ومريحة."
+    },
+    {
+      name: "طاهر عبد اللطيف",
+      image: person1,
+      rating: 5,
+      feedback: " م شركتكم خدمات مناسبة جدًا لرجال الأعمال، هذا ما ساعدني في رحلتي وجعلني اختصر جدًا من مشاكل الحجوزات."
+    },
+    {
+      name: "محمد الأحمد",
+      image: person3,
+      rating: 5,
+      feedback: "كانت تجربة مميزة مع خدمات رائعة قمت بأفضل إجازة لي من مدة طويلة، أنصح بالتعامل مع شركتكم دائمًا."
+    }
+  ];
