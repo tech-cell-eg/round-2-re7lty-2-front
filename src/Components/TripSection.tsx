@@ -81,8 +81,8 @@ const TripSection: React.FC = () => {
     return (
         <section dir="rtl" className="mt-6" id="trips">
             {/* Title Section */}
-            <h6 className="mt-5 ms-15 mb-2 text-md md:text-2xl text-gray-400">قم بزيارة العالم</h6>
-            <h1 className="ms-15 text-2xl md:text-5xl font-semibold">الرحلات التي نقدمها</h1>
+            <h6 className="mt-5 ms-2 md:ms-15 mb-2 text-md md:text-2xl text-gray-400">قم بزيارة العالم</h6>
+            <h1 className="ms-2 md:ms-15 text-2xl md:text-5xl font-semibold">الرحلات التي نقدمها</h1>
             {/* Cards Container */}
             <div dir="rtl" className="relative max-w-screen-xl mx-auto my-5">
                 <Slider {...settings}>
