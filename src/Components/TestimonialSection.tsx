@@ -13,7 +13,7 @@ interface ArrowProps extends React.HTMLAttributes<HTMLButtonElement> {
 const PrevArrow = (props: ArrowProps) => (
   <button
     {...props}
-    className="bg-[#6C50F5] absolute left-1/2 transform -translate-x-10  bottom-[-70px] bottom-[-70px] me-3 z-1 text-white w-8 h-8 flex items-center justify-center rounded-full border border-2 border-white shadow-[0_4px_10px_rgba(0,0,0,0.5)]"
+    className="bg-[#6C50F5] absolute left-1/2 transform -translate-x-10  bottom-[-70px] bottom-[-70px] me-3  text-white w-8 h-8 flex items-center justify-center rounded-full border border-2 border-white shadow-[0_4px_10px_rgba(0,0,0,0.5)]"
   >
     <FontAwesomeIcon icon={faChevronLeft} />
   </button>
@@ -23,7 +23,7 @@ const PrevArrow = (props: ArrowProps) => (
 const NextArrow = (props: ArrowProps) => (
   <button
     {...props}
-    className="bg-[#6C50F5] absolute left-1/2 transform translate-x-4 bottom-[-70px] ms-3 z-10 text-white w-8 h-8 flex items-center justify-center rounded-full border border-2 border-white shadow-[0_4px_10px_rgba(0,0,0,0.5)]"
+    className="bg-[#6C50F5] absolute left-1/2 transform translate-x-4 bottom-[-70px] ms-3  text-white w-8 h-8 flex items-center justify-center rounded-full border border-2 border-white shadow-[0_4px_10px_rgba(0,0,0,0.5)]"
 
   >
     <FontAwesomeIcon icon={faChevronRight} />
@@ -51,7 +51,7 @@ const Testimonials: React.FC = () => {
   };
 
   return (
-    <div className="text-center py-5">
+    <section id="testimonials" className="text-center py-5">
       {/* Title */}
       <h3 className="text-gray-500 text-md md:text-2xl font-semibold">قالوا عنا</h3>
       <h2 className=" text-2xl md:text-5xl font-bold mt-2">آراء مجموعة من عملائنا</h2>
@@ -69,7 +69,7 @@ const Testimonials: React.FC = () => {
         <img src={cirlyArrow} alt="cirlyArrow" className="absolute hidden md:left-[140px] lg:left-[245px] 2xl:left-[400px]  top-[-34px] w-[85px] h-[41px]" />
 
       </div>
-    </div>
+    </section>
   );
 };
 
