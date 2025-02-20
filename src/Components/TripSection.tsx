@@ -10,9 +10,9 @@ interface ArrowProps {
     className?: string;
     style?: React.CSSProperties;
     onClick?: () => void;
-  }
+}
 
-function SampleNextArrow(props:ArrowProps) {
+function SampleNextArrow(props: ArrowProps) {
     const { className, style, onClick } = props;
     return (
         <div
@@ -35,7 +35,7 @@ function SampleNextArrow(props:ArrowProps) {
     );
 }
 
-function SamplePrevArrow(props:ArrowProps) {
+function SamplePrevArrow(props: ArrowProps) {
     const { className, style, onClick } = props;
     return (
         <div
@@ -80,15 +80,17 @@ const TripSection: React.FC = () => {
 
     return (
         <section dir="rtl" className="mt-6" id="trips">
-        <h6 className="mt-5 ms-15 mb-2 text-md md:text-2xl text-gray-400">قم بزيارة العالم</h6>
-        <h1 className="ms-15 text-2xl md:text-5xl font-semibold">الرحلات التي نقدمها</h1>
-        <div dir="rtl" className="relative max-w-screen-xl mx-auto my-5">
-            <Slider {...settings}>
-                {trips.map((trip: TripCardProps) => (
-                    <TripCard key={trip.id} {...trip} />
-                ))}
-            </Slider>
-        </div>
+            {/* Title Section */}
+            <h6 className="mt-5 ms-15 mb-2 text-md md:text-2xl text-gray-400">قم بزيارة العالم</h6>
+            <h1 className="ms-15 text-2xl md:text-5xl font-semibold">الرحلات التي نقدمها</h1>
+            {/* Cards Container */}
+            <div dir="rtl" className="relative max-w-screen-xl mx-auto my-5">
+                <Slider {...settings}>
+                    {trips.map((trip: TripCardProps) => (
+                        <TripCard key={trip.id} {...trip} />
+                    ))}
+                </Slider>
+            </div>
         </section>
     );
 }

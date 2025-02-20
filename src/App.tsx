@@ -5,6 +5,8 @@ import PricingSection from './Components/PricingSection'
 import ReviewSection from './Components/TestimonialSection'
 import ServicesSection from './Components/ServicesSection'
 import TripSection from './Components/TripSection'
+import ContactUsSection from './Components/ContactUsSection'
+
 
 function App() {
   
@@ -17,6 +19,7 @@ function App() {
       <ServicesSection/>
       <PricingSection/>
       <ReviewSection/>
+      <ContactUsSection/>
     </>
   )
 }
