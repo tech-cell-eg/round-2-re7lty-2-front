@@ -53,8 +53,8 @@ const Testimonials: React.FC = () => {
   return (
     <div className="text-center py-5">
       {/* Title */}
-      <h3 className="text-gray-500 text-2xl font-semibold">قالوا عنا</h3>
-      <h2 className="text-5xl font-bold mt-2">آراء مجموعة من عملائنا</h2>
+      <h3 className="text-gray-500 text-md md:text-2xl font-semibold">قالوا عنا</h3>
+      <h2 className=" text-2xl md:text-5xl font-bold mt-2">آراء مجموعة من عملائنا</h2>
 
       {/* Slick Slider */}
       <div className="mt-[60px] px-4 relative mx-auto">
@@ -66,7 +66,7 @@ const Testimonials: React.FC = () => {
   ))}
 </Slider>
 
-        <img src={cirlyArrow} alt="cirlyArrow" className="absolute left-[245px]  top-[-34px] w-[85px] h-[41px]" />
+        <img src={cirlyArrow} alt="cirlyArrow" className="absolute left-[114px] md:left-[140px] lg:left-[245px] 2xl:left-[400px]  top-[-34px] w-[85px] h-[41px]" />
 
       </div>
     </div>
