@@ -36,7 +36,7 @@ const Navbar: React.FC = () => {
                     { name: "آراء العملاء", to: "testimonials" },
                     { name: "اتصل بنا", to: "contact" },
                 ].map((item, index) => (
-                    <li className="hover:text-yellow-400 cursor-pointer" key={index}>
+                    <li className="hover:text-yellow-400 active:text-yellow-400 cursor-pointer" key={index}>
                         <Link
                             to={item.to}
                             smooth={true}
