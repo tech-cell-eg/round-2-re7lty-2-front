@@ -6,6 +6,7 @@ import ReviewSection from './Components/TestimonialSection'
 import ServicesSection from './Components/ServicesSection'
 import TripSection from './Components/TripSection'
 import ContactUsSection from './Components/ContactUsSection'
+import Footer from './Components/Footer'
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
       <PricingSection/>
       <ReviewSection/>
       <ContactUsSection/>
+      <Footer/>
     </>
   )
 }
