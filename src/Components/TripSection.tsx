@@ -1,10 +1,10 @@
-
-import TripCard from "./TripCard";
-import { trips } from "./data";
-import { TripCardProps } from "./TripCard";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Slider from "react-slick";
+import TripCard, { TripCardProps } from "./TripCard";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+
 
 interface ArrowProps {
     className?: string;
@@ -59,6 +59,33 @@ function SamplePrevArrow(props: ArrowProps) {
 }
 
 const TripSection: React.FC = () => {
+    const [trips, setTrips] = useState<TripCardProps[]>([]);
+    const [loading, setLoading] = useState<boolean>(true);
+    const [error, setError] = useState<string | null>(null);
+
+useEffect(() => {
+    const fetchTrips = async () => {
+        try {
+            const response = await axios.get("http://rahalaty.ct.ws/api/trips");
+            const transformedTrips = response.data.data.map((trip: TripCardProps) => ({
+                id: trip.id,
+                city: trip.city,
+                cost: trip.cost || 0,
+                image_link:  trip.image_link,
+                day_num: trip.day_num || 1,
+            }));
+            setTrips(transformedTrips);
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        } catch (err) {
+            setError("حدث خطأ أثناء جلب البيانات.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+    fetchTrips();
+}, []);
+
     const settings = {
         dots: true,
         infinite: false,
@@ -79,17 +106,25 @@ const TripSection: React.FC = () => {
     };
 
     return (
-        <section dir="rtl" className="mt-6" id="trips">
+        <section  className="mt-6" id="trips">
             {/* Title Section */}
-            <h6 className="mt-5 ms-2 md:ms-15 mb-2 text-md md:text-2xl text-gray-400">قم بزيارة العالم</h6>
-            <h1 className="ms-2 md:ms-15 text-2xl md:text-5xl font-semibold">الرحلات التي نقدمها</h1>
+            <div dir="rtl" className="ms-2 md:ms-15 mt-5 ">
+            <h6 className=" mb-2 text-md md:text-2xl text-gray-400">قم بزيارة العالم</h6>
+            <h1 className=" text-2xl md:text-5xl font-semibold">الرحلات التي نقدمها</h1>
+            </div>
             {/* Cards Container */}
-            <div dir="rtl" className="relative max-w-screen-xl mx-auto my-5">
-                <Slider {...settings}>
-                    {trips.map((trip: TripCardProps) => (
-                        <TripCard key={trip.id} {...trip} />
-                    ))}
-                </Slider>
+            <div  className="relative max-w-screen-xl mx-auto my-5">
+                {loading ? (
+                    <p className="text-center text-gray-500">جارٍ تحميل الرحلات...</p>
+                ) : error ? (
+                    <p className="text-center text-red-500">{error}</p>
+                ) : (
+                    <Slider {...settings} >
+                        {trips.map((trip) => (
+                            <TripCard key={trip.id} {...trip} />
+                        ))}
+                    </Slider>
+                )}
             </div>
         </section>
     );

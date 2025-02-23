@@ -1,11 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import TestimonialCard from "./TestimonialCard";
+import TestimonialCard, {TestimonialProps}  from "./TestimonialCard";
 import cirlyArrow from "../assets/cirlyArrow.png"
-import {testimonials} from "./data"
-
+import axios from "axios";
 interface ArrowProps extends React.HTMLAttributes<HTMLButtonElement> {
   onClick?: () => void;
 }
@@ -49,7 +48,32 @@ const Testimonials: React.FC = () => {
       { breakpoint: 400, settings: { slidesToShow: 1, slidesToScroll: 1 } },
     ],
   };
+  const [testimonials, settestimonial] = useState<TestimonialProps[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
 
+useEffect(() => {
+  const fetchTrips = async () => {
+      try {
+          const response = await axios.get("https://re7lty-2.digital-vision-solutions.com/api/testimonials");
+          const transformedtestimonial = response.data.data.data.map((testimonial: TestimonialProps) => ({
+              id: testimonial.id,
+              name:testimonial.name,
+              image: testimonial.image,
+              rating: testimonial.rating,
+              content: testimonial.content,
+          }));
+          settestimonial(transformedtestimonial);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      } catch (err) {
+          setError("حدث خطأ أثناء جلب البيانات.");
+      } finally {
+          setLoading(false);
+      }
+  };
+
+  fetchTrips();
+}, []);
   return (
     <section id="testimonials" className="text-center py-5">
       {/* Title */}
@@ -57,18 +81,23 @@ const Testimonials: React.FC = () => {
       <h2 className=" text-2xl md:text-5xl font-bold mt-2">آراء مجموعة من عملائنا</h2>
 
       {/* Slick Slider */}
-      <div className="mt-[60px] px-4 relative mx-auto">
-      <Slider {...settings} className="flex gap-4">
-  {testimonials.map((testimonial, index) => (
-    <div key={index} className="flex h-full">
-      <TestimonialCard {...testimonial} />
-    </div>
-  ))}
-</Slider>
+      <div  className="relative max-w-screen-xl mx-auto my-5">
+                {loading ? (
+                    <p className="text-center text-gray-500">جارٍ تحميل الرحلات...</p>
+                ) : error ? (
+                    <p className="text-center text-red-500">{error}</p>
+                ) : (
+                  <Slider {...settings} className="flex gap-4">
+                  {testimonials.map((testimonial, index) => (
+                    <div key={index} className="flex h-full">
+                      <TestimonialCard {...testimonial} />
+                    </div>
+                  ))}
+                </Slider>
+                )}
+                <img src={cirlyArrow} alt="cirlyArrow" className="absolute hidden md:left-[140px] lg:left-[245px] 2xl:left-[400px]  top-[-34px] w-[85px] h-[41px]" />
 
-        <img src={cirlyArrow} alt="cirlyArrow" className="absolute hidden md:left-[140px] lg:left-[245px] 2xl:left-[400px]  top-[-34px] w-[85px] h-[41px]" />
-
-      </div>
+            </div>
     </section>
   );
 };
