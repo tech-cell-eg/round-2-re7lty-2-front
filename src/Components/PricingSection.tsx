@@ -19,8 +19,8 @@ const PricingSection: React.FC = () => {
           features: plan.features,
         }));
         setPlans(transformedPlans);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
-        console.log(err)
         setError("حدث خطأ أثناء جلب البيانات.");
       } finally {
         setLoading(false);
