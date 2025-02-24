@@ -9,14 +9,14 @@ import { Link } from 'react-scroll';
 const Footer = () => {
   return (
     <footer dir='rtl' className='bg-[#191919] p-5 '>
-<div className=' flex flex-col md:flex-rocontainer mx-auto flex flex-col md:flex-row md:justify-between  md:text-startw'>
-      <div className=' mb-6 md:mb-0 text-start space-y-2'>
+<div className=' flex flex-col container mx-auto md:flex-row md:gap-22 md:text-start'>
+      <div className=' mb-6 md:mb-0 space-y-2 '>
           <div className="text-xl font-bold text-white"> رحلاتي <span className="text-yellow-400">.</span></div>
           <p className='text-[#797979] max-w-xs'>شركة متخصصة في مجال السياحة والسفر
             نقدم خدمات تأمين الرحلات والحجوزات
             والفيز لكل أنحاء العالم.</p>
         </div>
-      <div dir='rtl' className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+      <div dir='rtl' className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-22 text-sm">
         
         
           <div><h4 className="text-white font-semibold mb-2">حول</h4>
