@@ -51,7 +51,7 @@ const Testimonials: React.FC = () => {
   const [testimonials, settestimonial] = useState<TestimonialProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-
+  const baseImage="https://re7lty-2.digital-vision-solutions.com/";
 useEffect(() => {
   const fetchTrips = async () => {
       try {
@@ -59,10 +59,11 @@ useEffect(() => {
           const transformedtestimonial = response.data.data.data.map((testimonial: TestimonialProps) => ({
               id: testimonial.id,
               name:testimonial.name,
-              image: testimonial.image,
+              image: baseImage+testimonial.image,
               rating: testimonial.rating,
               content: testimonial.content,
           }));
+          console.log(transformedtestimonial)
           settestimonial(transformedtestimonial);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
