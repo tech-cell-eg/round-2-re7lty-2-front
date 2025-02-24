@@ -24,7 +24,7 @@ function SampleNextArrow(props: ArrowProps) {
                 height: "40px",
                 borderRadius: "50%",
                 position: "absolute",
-                left: "2px",
+                right: "2px",
                 zIndex: 1,
                 display: "flex",
                 justifyContent: "center",
@@ -47,7 +47,7 @@ function SamplePrevArrow(props: ArrowProps) {
                 height: "40px",
                 borderRadius: "50%",
                 position: "absolute",
-                right: "0px",
+                left: "0px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -66,13 +66,13 @@ const TripSection: React.FC = () => {
 useEffect(() => {
     const fetchTrips = async () => {
         try {
-            const response = await axios.get("http://rahalaty.ct.ws/api/trips");
-            const transformedTrips = response.data.data.map((trip: TripCardProps) => ({
+            const response = await axios.get("https://re7lty-2.digital-vision-solutions.com/api/trips");
+            const transformedTrips = response.data.data.data.map((trip: TripCardProps) => ({
                 id: trip.id,
-                city: trip.city,
-                cost: trip.cost || 0,
-                image_link:  trip.image_link,
-                day_num: trip.day_num || 1,
+                name: trip.name,
+                coast: trip.coast || 0,
+                image:  trip.image,
+                number_of_days: trip.number_of_days || 1,
             }));
             setTrips(transformedTrips);
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -121,7 +121,7 @@ useEffect(() => {
                 ) : (
                     <Slider {...settings} >
                         {trips.map((trip) => (
-                            <TripCard key={trip.id} {...trip} />
+                            <TripCard key={trip.id} {...trip}  />
                         ))}
                     </Slider>
                 )}
