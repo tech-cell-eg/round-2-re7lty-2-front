@@ -24,7 +24,7 @@ function SampleNextArrow(props: ArrowProps) {
                 height: "40px",
                 borderRadius: "50%",
                 position: "absolute",
-                left: "2px",
+                right: "2px",
                 zIndex: 1,
                 display: "flex",
                 justifyContent: "center",
@@ -47,7 +47,7 @@ function SamplePrevArrow(props: ArrowProps) {
                 height: "40px",
                 borderRadius: "50%",
                 position: "absolute",
-                right: "0px",
+                left: "0px",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
@@ -121,7 +121,7 @@ useEffect(() => {
                 ) : (
                     <Slider {...settings} >
                         {trips.map((trip) => (
-                            <TripCard key={trip.id} {...trip} />
+                            <TripCard key={trip.id} {...trip} data-ignore-currentslide />
                         ))}
                     </Slider>
                 )}

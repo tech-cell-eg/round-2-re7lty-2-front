@@ -5,29 +5,68 @@ import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons
 import TestimonialCard, {TestimonialProps}  from "./TestimonialCard";
 import cirlyArrow from "../assets/cirlyArrow.png"
 import axios from "axios";
-interface ArrowProps extends React.HTMLAttributes<HTMLButtonElement> {
-  onClick?: () => void;
+interface ArrowProps {
+    className?: string;
+    style?: React.CSSProperties;
+    onClick?: () => void;
 }
-// Custom Previous Arrow
-const PrevArrow = (props: ArrowProps) => (
-  <button
-    {...props}
-    className="bg-[#6C50F5] absolute left-1/2 transform -translate-x-10  bottom-[-70px] bottom-[-70px] me-3  text-white w-8 h-8 flex items-center justify-center rounded-full border border-2 border-white shadow-[0_4px_10px_rgba(0,0,0,0.5)]"
-  >
-    <FontAwesomeIcon icon={faChevronLeft} />
-  </button>
-);
 
-// Custom Next Arrow
-const NextArrow = (props: ArrowProps) => (
-  <button
-    {...props}
-    className="bg-[#6C50F5] absolute left-1/2 transform translate-x-4 bottom-[-70px] ms-3  text-white w-8 h-8 flex items-center justify-center rounded-full border border-2 border-white shadow-[0_4px_10px_rgba(0,0,0,0.5)]"
 
-  >
-    <FontAwesomeIcon icon={faChevronRight} />
-  </button>
-);
+function PrevArrow({ className, style, onClick }: ArrowProps) {
+  return (
+    <div
+      className={`${className} prev-arrow   shadow-lg`}
+      style={{
+        ...style,
+        width: "40px",
+        height: "40px",
+        borderRadius: "50%",
+        border:"solid 2px white",
+        backgroundColor:"#6C50F5",
+        position: "absolute",
+        left: "50%",
+        transform: "translateX(-125%)",
+        top: "295px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 1,
+      }}
+      onClick={onClick}
+    >
+      <FontAwesomeIcon icon={faChevronLeft} className="text-white" />
+    </div>
+  );
+}
+
+function NextArrow({ className, style, onClick }: ArrowProps) {
+  return (
+    <div
+      className={`${className} next-arrow shadow-lg`}
+      style={{
+        ...style,
+        width: "40px",
+        height: "40px",
+        borderRadius: "50%",
+        border:"solid 2px white",
+        backgroundColor:"#6C50F5",
+        position: "absolute",
+        left: "50%",
+        transform: "translateX(10px)",
+        top: "295px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        zIndex: 1,
+        
+      }}
+      onClick={onClick}
+    >
+      <FontAwesomeIcon icon={faChevronRight} className="text-white" />
+    </div>
+  );
+}
+
 
 const Testimonials: React.FC = () => {
   // Slider Settings
@@ -63,7 +102,6 @@ useEffect(() => {
               rating: testimonial.rating,
               content: testimonial.content,
           }));
-          console.log(transformedtestimonial)
           settestimonial(transformedtestimonial);
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
@@ -89,8 +127,8 @@ useEffect(() => {
                     <p className="text-center text-red-500">{error}</p>
                 ) : (
                   <Slider {...settings} className="flex gap-4">
-                  {testimonials.map((testimonial, index) => (
-                    <div key={index} className="flex h-full">
+                  {testimonials.map((testimonial) => (
+                    <div key={testimonial.id} className="flex h-full">
                       <TestimonialCard {...testimonial} />
                     </div>
                   ))}
