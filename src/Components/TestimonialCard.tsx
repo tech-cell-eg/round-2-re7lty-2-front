@@ -14,7 +14,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({ name, image, rating, cont
       {/* Stars */}
       <div className="flex justify-end">
         {Array.from({ length: rating }).map((_, index) => (
-          <span key={index} className="text-yellow-400 text-xl">★</span>
+          <span key={index} className="text-[#fdc700] text-xl">★</span>
         ))}
       </div>
       {/* User Info */}

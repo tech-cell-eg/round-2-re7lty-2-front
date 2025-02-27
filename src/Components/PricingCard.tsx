@@ -20,13 +20,10 @@ const PricingCard: React.FC<PricingCardProps> = ({
 }) => {
     return (
         <div
-            className={`p-6 rounded-lg shadow-[12px_12px_0_rgba(0,0,0,1)]
- border m-10 w-80
-      transition-all duration-300 text-right
-      ${isHighlighted ? "bg-[#46368B] text-white lg:-mt-15 scale-105" : "bg-yellow-100 text-[#191919]"}`}
+            className={`p-6 rounded-lg shadow-[12px_12px_0_rgba(0,0,0,1)] border m-10 w-80 transition-all duration-300 text-right hover:scale-105 active:scale-105  cursor-pointer ${isHighlighted ? "bg-[#46368B] text-white lg:-mt-15 scale-103" : "bg-[#fef9c2] text-[#191919]"}`}
         >
             {/* Price */}
-            <h3 className="text-4xl font-bold inline">${price} </h3><span className="text-xl "> / للشخص </span>
+            <h3 className="text-4xl font-bold inline">${price}</h3><span className="text-xl"> / للشخص </span>
             <p className="text-2xl font-bold mt-2">{type}</p>
 
             {/* Description */}

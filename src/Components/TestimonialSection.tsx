@@ -2,13 +2,13 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
-import TestimonialCard, {TestimonialProps}  from "./TestimonialCard";
+import TestimonialCard, { TestimonialProps } from "./TestimonialCard";
 import cirlyArrow from "../assets/cirlyArrow.png"
 import axios from "axios";
 interface ArrowProps {
-    className?: string;
-    style?: React.CSSProperties;
-    onClick?: () => void;
+  className?: string;
+  style?: React.CSSProperties;
+  onClick?: () => void;
 }
 
 
@@ -21,8 +21,8 @@ function PrevArrow({ className, style, onClick }: ArrowProps) {
         width: "40px",
         height: "40px",
         borderRadius: "50%",
-        border:"solid 2px white",
-        backgroundColor:"#6C50F5",
+        border: "solid 2px white",
+        backgroundColor: "#6C50F5",
         position: "absolute",
         left: "50%",
         transform: "translateX(-125%)",
@@ -48,8 +48,8 @@ function NextArrow({ className, style, onClick }: ArrowProps) {
         width: "40px",
         height: "40px",
         borderRadius: "50%",
-        border:"solid 2px white",
-        backgroundColor:"#6C50F5",
+        border: "solid 2px white",
+        backgroundColor: "#6C50F5",
         position: "absolute",
         left: "50%",
         transform: "translateX(10px)",
@@ -58,7 +58,7 @@ function NextArrow({ className, style, onClick }: ArrowProps) {
         justifyContent: "center",
         alignItems: "center",
         zIndex: 1,
-        
+
       }}
       onClick={onClick}
     >
@@ -90,53 +90,54 @@ const Testimonials: React.FC = () => {
   const [testimonials, settestimonial] = useState<TestimonialProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const baseImage="https://re7lty-2.digital-vision-solutions.com/";
-useEffect(() => {
-  const fetchTrips = async () => {
+  const baseImage = "https://re7lty-2.digital-vision-solutions.com/";
+  useEffect(() => {
+    const fetchTrips = async () => {
       try {
-          const response = await axios.get("https://re7lty-2.digital-vision-solutions.com/api/testimonials");
-          const transformedtestimonial = response.data.data.data.map((testimonial: TestimonialProps) => ({
-              id: testimonial.id,
-              name:testimonial.name,
-              image: baseImage+testimonial.image,
-              rating: testimonial.rating,
-              content: testimonial.content,
-          }));
-          settestimonial(transformedtestimonial);
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        const response = await axios.get("https://re7lty-2.digital-vision-solutions.com/api/testimonials");
+        const transformedtestimonial = response.data.data.data.map((testimonial: TestimonialProps) => ({
+          id: testimonial.id,
+          name: testimonial.name,
+          image: baseImage + testimonial.image,
+          rating: testimonial.rating,
+          content: testimonial.content,
+        }));
+        settestimonial(transformedtestimonial);
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
-          setError("حدث خطأ أثناء جلب البيانات.");
+        setError("حدث خطأ أثناء جلب البيانات.");
       } finally {
-          setLoading(false);
+        setLoading(false);
       }
-  };
+    };
 
-  fetchTrips();
-}, []);
+    fetchTrips();
+  }, []);
   return (
     <section id="testimonials" className="text-center py-5">
       {/* Title */}
-      <h3 className="text-gray-500 text-md md:text-2xl font-semibold">قالوا عنا</h3>
-      <h2 className=" text-2xl md:text-5xl font-bold mt-2">آراء مجموعة من عملائنا</h2>
-
+      <div className="mb-15">
+        <h3 className="text-gray-500 text-md md:text-2xl font-semibold">قالوا عنا</h3>
+        <h2 className=" text-2xl md:text-5xl font-bold mt-2 ">آراء مجموعة من عملائنا</h2>
+      </div>
       {/* Slick Slider */}
-      <div  className="relative max-w-screen-xl mx-auto my-5">
-                {loading ? (
-                    <p className="text-center text-gray-500">جارٍ تحميل الرحلات...</p>
-                ) : error ? (
-                    <p className="text-center text-red-500">{error}</p>
-                ) : (
-                  <Slider {...settings} className="flex gap-4">
-                  {testimonials.map((testimonial) => (
-                    <div key={testimonial.id} className="flex h-full">
-                      <TestimonialCard {...testimonial} />
-                    </div>
-                  ))}
-                </Slider>
-                )}
-                <img src={cirlyArrow} alt="cirlyArrow" className="absolute hidden md:left-[140px] lg:left-[245px] 2xl:left-[400px]  top-[-34px] w-[85px] h-[41px]" />
+      <div className="relative max-w-screen-xl mx-auto my-5">
+        {loading ? (
+          <p className="text-center text-gray-500">جارٍ تحميل الآراء...</p>
+        ) : error ? (
+          <p className="text-center text-red-500">{error}</p>
+        ) : (
+          <Slider {...settings} className="flex gap-4">
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className=" h-full">
+                <TestimonialCard {...testimonial} />
+              </div>
+            ))}
+          </Slider>
+        )}
+        <img src={cirlyArrow} alt="cirlyArrow" className="absolute hidden md:block md:left-[140px] lg:left-[245px] 2xl:left-[400px] top-[-34px] w-[85px] h-[41px] " />
 
-            </div>
+      </div>
     </section>
   );
 };

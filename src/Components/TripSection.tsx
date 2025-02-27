@@ -62,6 +62,7 @@ const TripSection: React.FC = () => {
     const [trips, setTrips] = useState<TripCardProps[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
+    const baseImage = "https://re7lty-2.digital-vision-solutions.com/";
 
 useEffect(() => {
     const fetchTrips = async () => {
@@ -71,9 +72,11 @@ useEffect(() => {
                 id: trip.id,
                 name: trip.name,
                 coast: trip.coast || 0,
-                image:  trip.image,
+                image: baseImage + trip.image,
                 number_of_days: trip.number_of_days || 1,
             }));
+            console.log(baseImage);
+            console.log(transformedTrips)
             setTrips(transformedTrips);
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (err) {
@@ -113,7 +116,7 @@ useEffect(() => {
             <h1 className=" text-2xl md:text-5xl font-semibold">الرحلات التي نقدمها</h1>
             </div>
             {/* Cards Container */}
-            <div  className="relative max-w-screen-xl mx-auto my-5">
+            <div dir="rtl" className="relative max-w-screen-xl mx-auto my-5">
                 {loading ? (
                     <p className="text-center text-gray-500">جارٍ تحميل الرحلات...</p>
                 ) : error ? (

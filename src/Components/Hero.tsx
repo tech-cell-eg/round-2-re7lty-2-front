@@ -6,7 +6,7 @@ import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Hero: React.FC = () => {
   return (
-    <section
+    <section id="hero"
       className="h-[700px] xl:h-screen w-full flex flex-col justify-center items-center text-center bg-cover bg-center bg-no-repeat"
       style={{ backgroundImage: `url(${hero})` }}
     >
@@ -22,7 +22,7 @@ const Hero: React.FC = () => {
 
         {/*  Button */}
         <div className="flex justify-center mb-10 md:mb-[100px]">
-          <div className=" flex justify-center gap-2 w-full mt-3 p-2 bg-yellow-400 text-black text-lg  font-semibold rounded-xl hover:bg-yellow-500 active:bg-yellow-500 transition cursor-pointer md:px-6 md:mt-6 md:w-[200px]">
+          <div className=" flex justify-center gap-2 w-full mt-3 p-2 bg-[#fdc700] text-black text-lg  font-semibold rounded-xl hover:bg-[#f0b100] active:bg-[#f0b100] transition cursor-pointer md:px-6 md:mt-6 md:w-[200px]">
             <div className=" flex justify-center items-center bg-white p-2 rounded-full w-[30px] h-[30px]" ><FontAwesomeIcon className="text-xl" icon={faAngleLeft} /></div>
             احجز الآن
 

@@ -10,7 +10,7 @@ function ContactUsSection() {
                 <h2 className=" text-2xl md:text-5xl font-bold mt-2">يسعدنا التواصل معك </h2>
             </div>
             {/* Cards Container */}
-            <div id="contact" className="flex flex-col md:flex-row justify-center gap-5 items-center">
+            <div id="contact" className="flex flex-col mx-15 md:flex-row  gap-15 items-center">
                 <ContactForm />
                 <HelpInfo />
             </div>
